@@ -1,0 +1,42 @@
+#star-gradient-fill {
+  --primary-color: gold;
+  --secondary-color: grey;
+}
+
+.star_container {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+
+  &:hover .star .gradient-bg,
+  &:hover ~ .star .star-progress {
+    fill: url(#star-gradient-fill) grey;
+  }
+}
+
+.star {
+  cursor: pointer;
+  fill: grey;
+  padding-left: 4px;
+  padding-right: 4px;
+
+  &:hover {
+    transition-duration: 100ms;
+    transform: scale(1.3);
+  }
+
+  &:hover ~ .star .gradient-bg,
+  &:hover ~ .star .star-progress {
+    fill: grey;
+  }
+
+  &:hover ~ .star-progress {
+    width: 100%;
+  }
+}
+
+.star-progress {
+  &:hover {
+    width: 100%;
+  }
+}
