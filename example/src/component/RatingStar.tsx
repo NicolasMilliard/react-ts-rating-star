@@ -3,33 +3,36 @@ import Star from './Star'
 import './react-ts-rating-star.scss'
 
 interface RatingStarProps {
+  numberOfStars?: number
   icon?: JSX.Element
   iconWidth?: string
   iconHeight?: string
-  note?: number
   averageNote?: number
 }
 
 const RatingStar = ({
-  note = 5,
+  icon,
   iconWidth = '2em',
   iconHeight = '2em',
-  averageNote = 3.81,
+  numberOfStars = 5,
+  averageNote,
 }: RatingStarProps) => {
   const renderStars = () => {
     const stars: JSX.Element[] = []
 
     // Calculate the number of filled stars and the percentage of the last star to fill
-    const filledStars = Math.floor(averageNote)
-    const lastStarPercentage = (averageNote - filledStars) * 100
+    const filledStars: number = averageNote ? Math.floor(averageNote) : 0
+    const lastStarPercentage: number = averageNote
+      ? (averageNote - filledStars) * 100
+      : 0
 
-    for (let i = 0; i < note; i++) {
+    for (let i = 0; i < numberOfStars; i++) {
       // Calculate the fill percentage for each star
-      let fillPercentage = 1
+      let fillPercentage = 100
       if (i < filledStars) {
-        fillPercentage = 1
+        fillPercentage = 100
       } else if (i === filledStars) {
-        fillPercentage = lastStarPercentage / 100
+        fillPercentage = lastStarPercentage
       } else {
         fillPercentage = 0
       }
@@ -37,6 +40,8 @@ const RatingStar = ({
       stars.push(
         <Star
           key={i}
+          currentStar={i + 1}
+          icon={icon}
           iconWidth={iconWidth}
           iconHeight={iconHeight}
           fillPercentage={fillPercentage}
@@ -47,7 +52,7 @@ const RatingStar = ({
     return stars
   }
 
-  return <div className='star_container'>{renderStars()}</div>
+  return <div className='star-container'>{renderStars()}</div>
 }
 
 export default RatingStar
