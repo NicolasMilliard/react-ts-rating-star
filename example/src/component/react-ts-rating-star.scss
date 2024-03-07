@@ -1,17 +1,17 @@
 .star-container {
+  cursor: pointer;
   display: flex;
   align-items: center;
   width: fit-content;
+  fill: grey;
 
-  &:hover .star-wrapper path,
-  &:hover ~ .star-wrapper .star-progress {
+  &:hover .star path,
+  &:hover ~ .star .star-progress {
     fill: gold;
   }
 }
 
-.star-wrapper {
-  cursor: pointer;
-  fill: grey;
+.star {
   padding-left: 4px;
   padding-right: 4px;
 
@@ -20,18 +20,12 @@
     transform: scale(1.3);
   }
 
-  &:hover ~ .star-wrapper path,
-  &:hover ~ .star-wrapper .star-progress {
+  &:hover ~ .star path,
+  &:hover ~ .star .star-progress {
     fill: grey;
-  }
-
-  &:hover ~ .star-progress {
-    width: 100%;
   }
 }
 
-.star-progress {
-  &:hover {
-    width: 100%;
-  }
+.clicked-star {
+  fill: gold;
 }
