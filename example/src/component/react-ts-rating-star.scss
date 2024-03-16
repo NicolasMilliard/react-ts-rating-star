@@ -1,31 +1,84 @@
-.star-container {
+.rtrs-star-container {
   cursor: pointer;
   display: flex;
   align-items: center;
   width: fit-content;
-  fill: grey;
+  fill: var(--rtrs-star-background-color);
 
-  &:hover .star path,
-  &:hover ~ .star .star-progress {
-    fill: gold;
+  &:hover .rtrs-star path,
+  &:hover ~ .rtrs-star .rtrs-star-progress {
+    fill: var(--rtrs-star-color);
   }
 }
 
-.star {
+.rtrs-star {
   padding-left: 4px;
   padding-right: 4px;
 
-  &:hover {
-    transition-duration: 100ms;
-    transform: scale(1.3);
-  }
-
-  &:hover ~ .star path,
-  &:hover ~ .star .star-progress {
-    fill: grey;
+  &:hover ~ .rtrs-star path,
+  &:hover ~ .rtrs-star .rtrs-star-progress {
+    fill: var(--rtrs-star-background-color);
   }
 }
 
-.clicked-star {
-  fill: gold;
+.rtrs-clicked-star {
+  fill: var(--rtrs-star-color);
+}
+
+@keyframes pulsating {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.3);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes twinkling {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes rotating {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.rtrs-star.scaling-fixed {
+  &:hover {
+    transition-duration: 100ms;
+    transform: scale(var(--rtrs-star-upscale-on-hover));
+  }
+}
+
+.rtrs-star.scaling-animation {
+  &:hover {
+    animation: pulsating 1s infinite alternate;
+  }
+}
+
+.rtrs-star.twinkling-animation {
+  &:hover {
+    animation: twinkling 1s infinite alternate;
+  }
+}
+
+.rtrs-star.rotating-animation {
+  &:hover {
+    animation: rotating 2s linear infinite;
+  }
 }

@@ -1,30 +1,34 @@
 import React from 'react'
 import './react-ts-rating-star.scss'
 
-// TODO: Add colors props
 interface StarProps {
   currentStar: number
   isActive: boolean
-  icon: JSX.Element | undefined
+  icon?: JSX.Element
+  iconColor?: string
   iconWidth: string
   iconHeight: string
   fillPercentage: number
+  animationClassName: string
   onClick: (starIndex: number) => void
 }
 
+/**
+ * Star component for displaying a single star.
+ * @param props - The StarProps object containing the props for the Star component.
+ * @returns JSX.Element representing the Star component.
+ */
 const Star = ({
   currentStar,
   isActive,
   icon,
+  iconColor,
   iconWidth,
   iconHeight,
   fillPercentage,
+  animationClassName,
   onClick,
 }: StarProps) => {
-  const handleClick = () => {
-    onClick(currentStar)
-  }
-
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
@@ -32,11 +36,11 @@ const Star = ({
       xmlSpace='preserve'
       width={iconWidth}
       height={iconHeight}
-      className={`star ${isActive ? 'clicked-star' : ''}`}
-      onClick={handleClick}
+      className={`rtrs-star ${isActive ? 'rtrs-clicked-star' : ''} ${animationClassName}`}
+      onClick={() => onClick(currentStar)}
     >
       <defs>
-        <clipPath id='starClip'>
+        <clipPath id='rtrs-star-clip'>
           <StarIcon icon={icon} />
         </clipPath>
       </defs>
@@ -46,9 +50,9 @@ const Star = ({
         y='0'
         width={`${fillPercentage}%`}
         height='100%'
-        fill='gold'
-        clipPath='url(#starClip)'
-        className='star-progress'
+        fill={iconColor}
+        clipPath='url(#rtrs-star-clip)'
+        className='rtrs-star-progress'
       />
     </svg>
   )
@@ -56,6 +60,11 @@ const Star = ({
 
 export default Star
 
+/**
+ * StarIcon component for rendering the star icon.
+ * @param icon - The icon to render.
+ * @returns JSX.Element representing the StarIcon component.
+ */
 const StarIcon = ({ icon }: { icon: JSX.Element | undefined }) => {
   return (
     <>
