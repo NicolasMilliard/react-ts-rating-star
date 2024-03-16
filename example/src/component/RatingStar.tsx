@@ -16,7 +16,6 @@ interface RatingStarProps {
   iconColor?: string
   iconWidth?: string
   iconHeight?: string
-  iconUpScaleOnHover?: boolean
   backgroundColor?: string
   averageNote?: number
   animationEffect?: string
@@ -33,10 +32,9 @@ const RatingStar = ({
   iconColor = 'gold',
   iconWidth = '2em',
   iconHeight = '2em',
-  iconUpScaleOnHover = true,
   backgroundColor = 'darkgray',
   averageNote,
-  animationEffect = HoverEffect.AnimatedRotating,
+  animationEffect = HoverEffect.Scaling,
 }: RatingStarProps) => {
   let animationClassName = ''
   const [clickedStars, setClickedStars] = useState<number[]>([])
@@ -48,10 +46,6 @@ const RatingStar = ({
   /** CSS Variable */
   const backgroundColorCSSVar = {
     '--rtrs-star-background-color': backgroundColor,
-  } as React.CSSProperties
-  /** CSS Variable */
-  const iconUpScaleOnHoverCSSVar = {
-    '--rtrs-star-upscale-on-hover': iconUpScaleOnHover ? '1.3' : '1',
   } as React.CSSProperties
 
   switch (animationEffect) {
@@ -139,7 +133,6 @@ const RatingStar = ({
       style={{
         ...iconColorCSSVar,
         ...backgroundColorCSSVar,
-        ...iconUpScaleOnHoverCSSVar,
       }}
     >
       {renderStars}

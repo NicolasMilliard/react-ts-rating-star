@@ -61,7 +61,7 @@
 .rtrs-star.scaling-fixed {
   &:hover {
     transition-duration: 100ms;
-    transform: scale(var(--rtrs-star-upscale-on-hover));
+    transform: scale(1.3);
   }
 }
 
