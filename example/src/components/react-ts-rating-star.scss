@@ -1,0 +1,85 @@
+// Rating star container styles
+.rtrs-star-container {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  fill: var(--rtrs-star-background-color);
+
+  &:hover .rtrs-star path,
+  &:hover ~ .rtrs-star .rtrs-star-progress {
+    fill: var(--rtrs-star-color);
+  }
+}
+
+// Star styles
+.rtrs-star {
+  padding-left: 4px;
+  padding-right: 4px;
+
+  &:hover ~ .rtrs-star path,
+  &:hover ~ .rtrs-star .rtrs-star-progress {
+    fill: var(--rtrs-star-background-color);
+  }
+}
+
+// Clicked star styles
+.rtrs-clicked-star {
+  fill: var(--rtrs-star-color);
+}
+
+.rtrs-star.scaling {
+  &:hover {
+    transition-duration: 100ms;
+    transform: scale(1.3);
+  }
+}
+
+// Scaling animation
+@keyframes AnimatedScaling {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.3);
+  }
+}
+.rtrs-star.animated-scaling {
+  &:hover {
+    animation: AnimatedScaling 1s infinite alternate;
+  }
+}
+
+// Twinkling animation
+@keyframes AnimatedTwinkling {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.rtrs-star.animated-twinkling {
+  &:hover {
+    animation: AnimatedTwinkling 1s infinite alternate;
+  }
+}
+
+// Rotating animation
+@keyframes AnimatedRotating {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.rtrs-star.animated-rotating {
+  &:hover {
+    animation: AnimatedRotating 2s linear infinite;
+  }
+}
