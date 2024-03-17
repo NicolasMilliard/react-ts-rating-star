@@ -1,7 +1,6 @@
 import React from 'react'
-import './react-ts-rating-star.scss'
 // Types
-import type { StarProps } from './types'
+import type { StarProps } from './types/types'
 
 /**
  * Star component for displaying a single star.

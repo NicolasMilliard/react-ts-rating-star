@@ -1,14 +1,15 @@
 {
   "name": "react-ts-rating-star",
-  "version": "0.0.1",
+  "version": "0.0.",
   "description": "React TS Rating Star allows you to create a highly customizable rating star component with ease.",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
   "types": "./dist/esm/index.d.ts",
   "scripts": {
-    "build": "yarn build:esm && yarn build:cjs",
+    "build": "yarn build:esm && yarn build:cjs && yarn copy:css",
     "build:esm": "tsc",
     "build:cjs": "tsc --module commonjs --outDir dist/cjs",
+    "copy:css": "cp styles/react-ts-rating-star.scss dist/esm && cp styles/react-ts-rating-star.scss dist/cjs",
     "lint": "eslint \"{**/*,*}.{js,ts,jsx,tsx}\"",
     "prettier": "prettier --write \"{src,tests,example/src}/**/*.{js,ts,jsx,tsx}\"",
     "prepare": "npm run build",

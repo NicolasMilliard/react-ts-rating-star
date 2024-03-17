@@ -1,9 +1,9 @@
 import React, { useMemo, useState } from 'react'
 import Star from './Star'
 // Types
-import type { RatingStarProps } from './types'
+import type { RatingStarProps } from './types/types'
 // Styles
-import './react-ts-rating-star.scss'
+import './styles/react-ts-rating-star.scss'
 
 /**
  * RatingStar component for displaying a rating star system.

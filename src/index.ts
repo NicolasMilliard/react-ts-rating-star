@@ -1,3 +1,3 @@
-import RatingStar from './components/App'
+import RatingStar from './components/RatingStar'
 
 export { RatingStar }
