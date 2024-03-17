@@ -1,3 +1,4 @@
+// Rating star container styles
 .rtrs-star-container {
   cursor: pointer;
   display: flex;
@@ -11,6 +12,7 @@
   }
 }
 
+// Star styles
 .rtrs-star {
   padding-left: 4px;
   padding-right: 4px;
@@ -21,35 +23,53 @@
   }
 }
 
+// Clicked star styles
 .rtrs-clicked-star {
   fill: var(--rtrs-star-color);
 }
 
-@keyframes pulsating {
-  0% {
+.rtrs-star.scaling {
+  &:hover {
+    transition-duration: 100ms;
+    transform: scale(1.3);
+  }
+}
+
+// Scaling animation
+@keyframes AnimatedScaling {
+  0%,
+  100% {
     transform: scale(1);
   }
   50% {
     transform: scale(1.3);
   }
-  100% {
-    transform: scale(1);
+}
+.rtrs-star.animated-scaling {
+  &:hover {
+    animation: AnimatedScaling 1s infinite alternate;
   }
 }
 
-@keyframes twinkling {
-  0% {
+// Twinkling animation
+@keyframes AnimatedTwinkling {
+  0%,
+  100% {
     opacity: 1;
   }
   50% {
     opacity: 0.5;
   }
-  100% {
-    opacity: 1;
+}
+
+.rtrs-star.animated-twinkling {
+  &:hover {
+    animation: AnimatedTwinkling 1s infinite alternate;
   }
 }
 
-@keyframes rotating {
+// Rotating animation
+@keyframes AnimatedRotating {
   from {
     transform: rotate(0deg);
   }
@@ -58,27 +78,8 @@
   }
 }
 
-.rtrs-star.scaling-fixed {
+.rtrs-star.animated-rotating {
   &:hover {
-    transition-duration: 100ms;
-    transform: scale(1.3);
-  }
-}
-
-.rtrs-star.scaling-animation {
-  &:hover {
-    animation: pulsating 1s infinite alternate;
-  }
-}
-
-.rtrs-star.twinkling-animation {
-  &:hover {
-    animation: twinkling 1s infinite alternate;
-  }
-}
-
-.rtrs-star.rotating-animation {
-  &:hover {
-    animation: rotating 2s linear infinite;
+    animation: AnimatedRotating 2s linear infinite;
   }
 }

@@ -1,25 +1,9 @@
 import React, { useMemo, useState } from 'react'
 import Star from './Star'
+// Types
+import type { RatingStarProps } from './types'
+// Styles
 import './react-ts-rating-star.scss'
-
-enum HoverEffect {
-  None = 'none',
-  Scaling = 'scaling',
-  AnimatedScaling = 'pulsating',
-  AnimatedTwinkling = 'twinkling',
-  AnimatedRotating = 'rotating',
-}
-
-interface RatingStarProps {
-  numberOfStars?: number
-  icon?: JSX.Element
-  iconColor?: string
-  iconWidth?: string
-  iconHeight?: string
-  backgroundColor?: string
-  averageNote?: number
-  animationEffect?: string
-}
 
 /**
  * RatingStar component for displaying a rating star system.
@@ -34,9 +18,8 @@ const RatingStar = ({
   iconHeight = '2em',
   backgroundColor = 'darkgray',
   averageNote,
-  animationEffect = HoverEffect.Scaling,
+  animationEffect = 'none',
 }: RatingStarProps) => {
-  let animationClassName = ''
   const [clickedStars, setClickedStars] = useState<number[]>([])
 
   /** CSS Variable */
@@ -47,23 +30,6 @@ const RatingStar = ({
   const backgroundColorCSSVar = {
     '--rtrs-star-background-color': backgroundColor,
   } as React.CSSProperties
-
-  switch (animationEffect) {
-    case HoverEffect.Scaling:
-      animationClassName = 'scaling-fixed'
-      break
-    case HoverEffect.AnimatedScaling:
-      animationClassName = 'scaling-animation'
-      break
-    case HoverEffect.AnimatedTwinkling:
-      animationClassName = 'twinkling-animation'
-      break
-    case HoverEffect.AnimatedRotating:
-      animationClassName = 'rotating-animation'
-      break
-    default:
-      break
-  }
 
   /**
    * Generate an array of clicked stars including the clicked star and all previous stars.
@@ -110,7 +76,7 @@ const RatingStar = ({
           iconWidth={iconWidth}
           iconHeight={iconHeight}
           fillPercentage={clickedStars.length > 0 ? 0 : fillPercentage}
-          animationClassName={animationClassName}
+          animationClassName={animationEffect}
           onClick={handleStar}
         />,
       )
@@ -124,7 +90,7 @@ const RatingStar = ({
     iconHeight,
     averageNote,
     clickedStars,
-    animationClassName,
+    animationEffect,
   ])
 
   return (

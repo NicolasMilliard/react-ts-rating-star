@@ -1,17 +1,7 @@
 import React from 'react'
 import './react-ts-rating-star.scss'
-
-interface StarProps {
-  currentStar: number
-  isActive: boolean
-  icon?: JSX.Element
-  iconColor?: string
-  iconWidth: string
-  iconHeight: string
-  fillPercentage: number
-  animationClassName: string
-  onClick: (starIndex: number) => void
-}
+// Types
+import type { StarProps } from './types'
 
 /**
  * Star component for displaying a single star.
