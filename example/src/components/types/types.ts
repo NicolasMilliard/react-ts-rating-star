@@ -5,7 +5,7 @@ export interface RatingStarProps {
   iconWidth?: string
   iconHeight?: string
   backgroundColor?: string
-  averageNote?: number
+  averageRating?: number
   iconHoverEffect?: HoverEffect
   onClick?: (rating: number) => unknown
 }

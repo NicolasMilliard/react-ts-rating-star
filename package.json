@@ -5,9 +5,9 @@
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "build": "tsc && build:sass && yarn copy:css",
-    "build:sass": "sass ./src/components/react-ts-rating-star.scss ./src/components/react-ts-rating-star.css --style compressed",
-    "copy:css": "cp ./src/components/react-ts-rating-star.css dist/esm/components/",
+    "build": "tsc && yarn build:sass && yarn copy:css",
+    "build:sass": "mkdir -p dist/esm/components/styles && sass ./src/components/styles/react-ts-rating-star.scss ./src/components/styles/react-ts-rating-star.css --style compressed",
+    "copy:css": "cp ./src/components/styles/react-ts-rating-star.css dist/esm/components/styles/",
     "lint": "eslint \"{**/*,*}.{js,ts,jsx,tsx}\"",
     "prettier": "prettier --write \"{src,tests,example/src}/**/*.{js,ts,jsx,tsx}\"",
     "prepare": "npm run build",

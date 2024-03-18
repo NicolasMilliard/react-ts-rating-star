@@ -3,7 +3,7 @@ import Star from './Star'
 // Types
 import type { RatingStarProps } from './types/types'
 // Styles
-import './react-ts-rating-star.scss'
+import './react-ts-rating-star.css'
 
 /**
  * RatingStar component for displaying a rating star system.
@@ -12,7 +12,7 @@ import './react-ts-rating-star.scss'
  */
 const RatingStar = ({
   numberOfStars = 5,
-  averageNote,
+  averageRating,
   icon,
   iconColor = 'gold',
   iconWidth = '2em',
@@ -53,9 +53,9 @@ const RatingStar = ({
 
     const stars: JSX.Element[] = []
     // Calculate the number of filled stars and the percentage of the last star to fill
-    const filledStars: number = averageNote ? Math.floor(averageNote) : 0
-    const lastStarPercentage: number = averageNote
-      ? (averageNote - filledStars) * 100
+    const filledStars: number = averageRating ? Math.floor(averageRating) : 0
+    const lastStarPercentage: number = averageRating
+      ? (averageRating - filledStars) * 100
       : 0
 
     // Calculate the fill percentage for each star
@@ -91,7 +91,7 @@ const RatingStar = ({
     iconColor,
     iconWidth,
     iconHeight,
-    averageNote,
+    averageRating,
     clickedStars,
     iconHoverEffect,
     clickCallback,
