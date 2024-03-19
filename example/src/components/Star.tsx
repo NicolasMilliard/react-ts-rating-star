@@ -19,31 +19,43 @@ const Star = ({
   onClick,
 }: StarProps) => {
   return (
-    <svg
-      xmlns='http://www.w3.org/2000/svg'
-      viewBox='0 0 47.94 47.94'
-      xmlSpace='preserve'
-      width={iconWidth}
-      height={iconHeight}
-      className={`rtrs-star ${isActive ? 'rtrs-clicked-star' : ''} ${animationClassName}`}
-      onClick={() => onClick(currentStar)}
-    >
-      <defs>
-        <clipPath id='rtrs-star-clip'>
+    <>
+      {icon ? (
+        <span
+          style={{ width: iconWidth, height: iconHeight }}
+          className={`rtrs-star ${isActive ? 'rtrs-clicked-star' : ''} ${animationClassName}`}
+          onClick={() => onClick(currentStar)}
+        >
+          {icon}
+        </span>
+      ) : (
+        <svg
+          xmlns='http://www.w3.org/2000/svg'
+          // viewBox='0 0 47.94 47.94' -> must update the transform origin to the center ?
+          xmlSpace='preserve'
+          width={iconWidth}
+          height={iconHeight}
+          className={`rtrs-star ${isActive ? 'rtrs-clicked-star' : ''} ${animationClassName}`}
+          onClick={() => onClick(currentStar)}
+        >
+          <defs>
+            <clipPath id='rtrs-star-clip'>
+              <StarIcon icon={icon} />
+            </clipPath>
+          </defs>
           <StarIcon icon={icon} />
-        </clipPath>
-      </defs>
-      <StarIcon icon={icon} />
-      <rect
-        x='0'
-        y='0'
-        width={`${fillPercentage}%`}
-        height='100%'
-        fill={iconColor}
-        clipPath='url(#rtrs-star-clip)'
-        className='rtrs-star-progress'
-      />
-    </svg>
+          <rect
+            x='0'
+            y='0'
+            width={`${fillPercentage}%`}
+            height='100%'
+            fill={iconColor}
+            clipPath='url(#rtrs-star-clip)'
+            className='rtrs-star-progress'
+          />
+        </svg>
+      )}
+    </>
   )
 }
 
