@@ -3,7 +3,6 @@
   cursor: pointer;
   display: flex;
   align-items: center;
-  // width: fit-content;
   fill: var(--rtrs-star-background-color);
 
   &:hover .rtrs-star path,
@@ -31,7 +30,7 @@
 .rtrs-star.scaling {
   &:hover {
     transition-duration: 100ms;
-    transform: scale(1.3);
+    transform: scale(1.1);
   }
 }
 
@@ -42,7 +41,7 @@
     transform: scale(1);
   }
   50% {
-    transform: scale(1.3);
+    transform: scale(1.1);
   }
 }
 .rtrs-star.animated-scaling {

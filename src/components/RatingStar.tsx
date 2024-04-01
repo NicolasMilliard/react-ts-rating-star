@@ -3,17 +3,23 @@ import Star from './Star'
 // Types
 import type { RatingStarProps } from './types/types'
 // Styles
-import './react-ts-rating-star.css'
+import './styles/react-ts-rating-star.scss'
 
 /**
  * RatingStar component for displaying a rating star system.
- * @param props - The RatingStarProps object containing the props for the RatingStar component.
+ * @param numberOfStars - The number of stars to display.
+ * @param averageRating - The average rating to display.
+ * @param iconColor - The color of the icon. Default is `gold`.
+ * @param iconWidth - The width of the icon. Default is `2em`.
+ * @param iconHeight - The height of the icon. Default is `2em`.
+ * @param iconHoverEffect - The hover effect of the icon. Default is `none`. Allowed values: `none`, `scaling`, `rotating`, `animated-scaling`, `animated-twinkling` and `animated-rotating`.
+ * @param backgroundColor - The background color of the star. Default is `darkgray`.
+ * @param onClick - The callback function when a star is clicked.
  * @returns JSX.Element representing the RatingStar component.
  */
 const RatingStar = ({
   numberOfStars = 5,
   averageRating,
-  icon,
   iconColor = 'gold',
   iconWidth = '2em',
   iconHeight = '2em',
@@ -23,13 +29,18 @@ const RatingStar = ({
 }: RatingStarProps) => {
   const [clickedStars, setClickedStars] = useState<number[]>([])
 
-  /** CSS Variable */
+  // CSS Variables
   const iconColorCSSVar = {
     '--rtrs-star-color': iconColor,
   } as React.CSSProperties
-  /** CSS Variable */
   const backgroundColorCSSVar = {
     '--rtrs-star-background-color': backgroundColor,
+  } as React.CSSProperties
+  const iconWidthCSSVar = {
+    '--rtrs-icon-width': iconWidth,
+  } as React.CSSProperties
+  const iconHeightCSSVar = {
+    '--rtrs-icon-height': iconHeight,
   } as React.CSSProperties
 
   /**
@@ -74,7 +85,6 @@ const RatingStar = ({
           key={i}
           currentStar={i + 1}
           isActive={clickedStars.includes(i + 1)}
-          icon={icon}
           iconColor={iconColor}
           iconWidth={iconWidth}
           iconHeight={iconHeight}
@@ -87,7 +97,6 @@ const RatingStar = ({
     return stars
   }, [
     numberOfStars,
-    icon,
     iconColor,
     iconWidth,
     iconHeight,
@@ -103,6 +112,8 @@ const RatingStar = ({
       style={{
         ...iconColorCSSVar,
         ...backgroundColorCSSVar,
+        ...iconWidthCSSVar,
+        ...iconHeightCSSVar,
       }}
     >
       {renderStars}

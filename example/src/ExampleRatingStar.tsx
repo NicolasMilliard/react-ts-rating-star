@@ -1,25 +1,30 @@
-import React from 'react'
+import React, { useState } from 'react'
 // import { RatingStar } from 'react-ts-rating-star'
 import RatingStar from './components/RatingStar.tsx'
-// import MyCustomIcon from './MyCustomIcon.tsx'
 
 const ExampleRatingStar = () => {
+  const defaultRating = 3.81
+  const [currentRating, setCurrentRating] = useState<number | null>(null)
   const getStarNumberClicked = (rating: number) => {
-    console.log(`Rating: ${rating}`)
+    setCurrentRating(rating)
   }
 
   return (
-    <RatingStar
-      numberOfStars={10}
-      // icon={<MyCustomIcon />}
-      iconColor='blue'
-      iconWidth='4em'
-      iconHeight='4em'
-      backgroundColor='green'
-      averageRating={3.81}
-      iconHoverEffect='animated-rotating'
-      onClick={getStarNumberClicked}
-    />
+    <>
+      <p>
+        {currentRating ? 'Current' : 'Default'} rating is:{' '}
+        {currentRating ? currentRating : defaultRating}
+      </p>
+      <RatingStar
+        iconColor='#fdcb6e'
+        backgroundColor='#dfe6e9'
+        iconWidth='4em'
+        iconHeight='4em'
+        averageRating={defaultRating}
+        iconHoverEffect='scaling'
+        onClick={getStarNumberClicked}
+      />
+    </>
   )
 }
 

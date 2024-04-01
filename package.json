@@ -1,7 +1,7 @@
 {
   "name": "react-ts-rating-star",
-  "version": "0.0.3",
-  "description": "React TS Rating Star allows you to create a highly customizable rating star component with ease.",
+  "version": "1.0.0",
+  "description": "React TS Rating Star allows you to create a customizable rating star component with ease.",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {

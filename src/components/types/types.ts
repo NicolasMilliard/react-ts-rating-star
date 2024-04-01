@@ -1,6 +1,5 @@
 export interface RatingStarProps {
   numberOfStars?: number
-  icon?: JSX.Element
   iconColor?: string
   iconWidth?: string
   iconHeight?: string
@@ -13,7 +12,6 @@ export interface RatingStarProps {
 export interface StarProps {
   currentStar: number
   isActive: boolean
-  icon?: JSX.Element
   iconColor?: string
   iconWidth: string
   iconHeight: string

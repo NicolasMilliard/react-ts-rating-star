@@ -1,8 +1,6 @@
 # React TS Rating Star
 
-React TS Rating Star allows you to create a highly customizable rating star component with ease.
-
-A working example can be found here: [TODO]
+React TS Rating Star allows you to create a customizable rating star component with ease.
 
 ## How to use
 
@@ -29,17 +27,16 @@ import { RatingStar } from 'react-ts-rating-star'
 
 ## Props
 
-| Prop name       | Type                        | Default     | Optional | Description                                               |
-| --------------- | --------------------------- | ----------- | -------- | --------------------------------------------------------- |
-| numberOfStars   | number                      | 5           | true     | The number of stars to display.                           |
-| averageRating   | number                      |             | true     | The rate displayed before interacting with the component. |
-| icon            | JSX.Element                 | A star icon | true     | The displayed icons.                                      |
-| iconColor       | string                      | 'gold'      | true     | The color of the icons.                                   |
-| iconWidth       | string                      | '2em'       | true     | The width of the icons.                                   |
-| iconHeight      | string                      | '2em'       | true     | The height of the icons.                                  |
-| iconHoverEffect | HoverEffect                 | 'none'      | true     | The effect on hover (see HoverEffect type below).         |
-| backgroundColor | string                      | 'darkgray'  | true     | The background color of the icons (inactive icon.)        |
-| onClick         | (rating: number) => unknown |             | true     | Function called when the user clicks on a star.           |
+| Prop name       | Type                        | Default    | Optional | Description                                               |
+| --------------- | --------------------------- | ---------- | -------- | --------------------------------------------------------- |
+| numberOfStars   | number                      | 5          | true     | The number of stars to display.                           |
+| averageRating   | number                      |            | true     | The rate displayed before interacting with the component. |
+| iconColor       | string                      | 'gold'     | true     | The color of the icons when active.                       |
+| backgroundColor | string                      | 'darkgray' | true     | The background color of the icons (inactive icon.)        |
+| iconWidth       | string                      | '2em'      | true     | The width of the icons.                                   |
+| iconHeight      | string                      | '2em'      | true     | The height of the icons.                                  |
+| iconHoverEffect | HoverEffect                 | 'none'     | true     | The effect on hover (see HoverEffect type below).         |
+| onClick         | (rating: number) => unknown |            | true     | Function called when the user clicks on a star.           |
 
 ## HoverEffect
 
@@ -55,7 +52,7 @@ Possible values of iconHoverEffect are the following:
 'animated-rotating'
 ```
 
-## A beautiful example
+## Example
 
 ```typescript
 import React from 'react'
@@ -69,14 +66,12 @@ const ExampleRatingStar = () => {
 
   return (
     <RatingStar
-      numberOfStars={10}
-      icon={<MyCustomIcon />}
-      iconColor='blue'
+      iconColor='#fdcb6e'
+      backgroundColor='#dfe6e9'
       iconWidth='4em'
       iconHeight='4em'
-      backgroundColor='green'
       averageRating={3.81}
-      iconHoverEffect='animated-rotating'
+      iconHoverEffect='scaling'
       onClick={getStarNumberClicked}
     />
   )
