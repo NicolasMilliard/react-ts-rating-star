@@ -79,3 +79,4 @@ const ExampleRatingStar = () => {
 
 export default ExampleRatingStar
 ```
+![alt text](https://github.com/NicolasMilliard/react-ts-rating-star/blob/main/example/example.gif?raw=true)
