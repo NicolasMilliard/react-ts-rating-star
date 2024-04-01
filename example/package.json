@@ -16,6 +16,6 @@
     "typescript": "^5.3.3"
   },
   "dependencies": {
-    "react-ts-rating-star": "^0.0.3"
+    "react-ts-rating-star": "^1.0.4"
   }
 }

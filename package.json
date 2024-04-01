@@ -1,13 +1,15 @@
 {
   "name": "react-ts-rating-star",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "React TS Rating Star allows you to create a customizable rating star component with ease.",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
   "scripts": {
-    "build": "tsc && yarn build:sass && yarn copy:css",
+    "build": "tsc && yarn build:sass && yarn copy:css && yarn copy:cssMap && yarn copy:scss",
     "build:sass": "mkdir -p dist/esm/components/styles && sass ./src/components/styles/react-ts-rating-star.scss ./src/components/styles/react-ts-rating-star.css --style compressed",
     "copy:css": "cp ./src/components/styles/react-ts-rating-star.css dist/esm/components/styles/",
+    "copy:cssMap": "cp ./src/components/styles/react-ts-rating-star.css.map dist/esm/components/styles/",
+    "copy:scss": "cp ./src/components/styles/react-ts-rating-star.scss dist/esm/components/styles/",
     "lint": "eslint \"{**/*,*}.{js,ts,jsx,tsx}\"",
     "prettier": "prettier --write \"{src,tests,example/src}/**/*.{js,ts,jsx,tsx}\"",
     "prepare": "npm run build",
@@ -49,5 +51,8 @@
   },
   "peerDependencies": {
     "react": ">=16.8.0"
+  },
+  "dependencies": {
+    "react-ts-rating-star": "^1.0.3"
   }
 }

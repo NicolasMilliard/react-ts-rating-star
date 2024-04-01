@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
-// import { RatingStar } from 'react-ts-rating-star'
-import RatingStar from './components/RatingStar.tsx'
+import { RatingStar } from 'react-ts-rating-star'
 
 const ExampleRatingStar = () => {
   const defaultRating = 3.81
@@ -16,8 +15,8 @@ const ExampleRatingStar = () => {
         {currentRating ? currentRating : defaultRating}
       </p>
       <RatingStar
-        iconColor='#fdcb6e'
-        backgroundColor='#dfe6e9'
+        iconColor='#3cabda'
+        backgroundColor='#f0f0f0'
         iconWidth='4em'
         iconHeight='4em'
         averageRating={defaultRating}

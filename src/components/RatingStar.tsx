@@ -3,7 +3,7 @@ import Star from './Star'
 // Types
 import type { RatingStarProps } from './types/types'
 // Styles
-import './styles/react-ts-rating-star.scss'
+import './styles/react-ts-rating-star.css'
 
 /**
  * RatingStar component for displaying a rating star system.
