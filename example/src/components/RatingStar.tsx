@@ -3,7 +3,7 @@ import Star from './Star'
 // Types
 import type { RatingStarProps } from './types/types'
 // Styles
-import './styles/react-ts-rating-star.css'
+import './styles/react-ts-rating-star.scss'
 
 /**
  * RatingStar component for displaying a rating star system.
@@ -30,6 +30,14 @@ const RatingStar = ({
   /** CSS Variable */
   const backgroundColorCSSVar = {
     '--rtrs-star-background-color': backgroundColor,
+  } as React.CSSProperties
+  /** CSS Variable */
+  const iconWidthCSSVar = {
+    '--rtrs-icon-width': iconWidth,
+  } as React.CSSProperties
+  /** CSS Variable */
+  const iconHeightCSSVar = {
+    '--rtrs-icon-height': iconHeight,
   } as React.CSSProperties
 
   /**
@@ -103,6 +111,8 @@ const RatingStar = ({
       style={{
         ...iconColorCSSVar,
         ...backgroundColorCSSVar,
+        ...iconWidthCSSVar,
+        ...iconHeightCSSVar,
       }}
     >
       {renderStars}

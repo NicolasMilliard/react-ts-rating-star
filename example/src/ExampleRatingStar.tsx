@@ -1,7 +1,7 @@
 import React from 'react'
 // import { RatingStar } from 'react-ts-rating-star'
 import RatingStar from './components/RatingStar.tsx'
-import MyCustomIcon from './MyCustomIcon.tsx'
+// import MyCustomIcon from './MyCustomIcon.tsx'
 
 const ExampleRatingStar = () => {
   const getStarNumberClicked = (rating: number) => {
